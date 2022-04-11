@@ -1,0 +1,89 @@
+
+  <!-- For Footer bottom -->
+  <div class="album py-5 bg-custom-image">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+        <div class="col">
+            <h3 class="fw-light footer-title">Nos applications</h3>
+            <div>
+                <div>
+                    <div>
+                        <a href="https://apps.apple.com/cm/app/wambi/id1592188364" target="_blank" class="b-app-footer__group-link">
+                            <img src="../../assets/images/ios.svg" class="h-max-width-100p">
+                        </a>
+                    </div>
+                    <div class="pt-2">
+                        <a href="https://play.google.com/store/apps/details?id=com.wambi" target="_blank" class="b-app-footer__group-link">
+                            <img src="../../assets/images/android.svg" class="h-max-width-100p">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h3 class="fw-light footer-title">Support client</h3>
+            <div>
+                <ol class="list-type">
+                    <li>romywandji@gmail.com</li>
+                    <li>+237 6xx xxx xxx</li>
+                </ol>
+            </div>
+        </div>
+        <div class="col">
+            <h3 class="fw-light footer-title">Lien utiles</h3>
+            <div>
+                <ol class="list-type">
+                    <li>
+                        <a href="terms" class="text-white" >Termes et conditions d'utilisation</a>
+                    </li>
+                    <li>
+                        <a href="privacy" class="text-white" >Politique de cindentialité</a>
+                    </li>
+                    <li>
+                        <a href="billing" class="text-white" >Mentions légales</a>
+                    </li>
+                    <li>
+                        <a href="cookies" class="text-white" >Cookies</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="col">
+            <h3 class="fw-light footer-title">Social links</h3>
+            <div>
+                <ol class="list-type">
+                    <li>
+                        <a href="#" class="text-white" >Facebook</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white" >Instagram</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white" >Linkedin</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white" >Twitter</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- For Footer bottom -->
+  <div class="album copy-p bg-custom-copyright">
+    <div class="container">
+      <div>
+          <p class="text-w">© 2022 | Wambi</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="cookies==null" class="cookie-consent"> <span>This site uses cookies to enhance user experience. see<a href="#" class="ml-1 text-decoration-none">Privacy policy</a> </span>
+    <div class="mt-2 d-flex align-items-center justify-content-center g-2">
+         <button class="allow-button mr-1" (click)="allow()">Allow cookies</button> 
+         <button class="cancel-button" (click)="cancel()" >cancel</button>
+    </div>
+</div>

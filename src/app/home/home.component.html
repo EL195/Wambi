@@ -1,0 +1,93 @@
+<section class="py-5 text-center  bg-custom">
+    <div class="row height d-flex justify-content-center align-items-center">
+      <div class="col-md-8 pp">
+        <p class="text-white text-100">Find anything</p>
+          <div class="search"> <i class="fa fa-search"></i> <input [(ngModel)]="searchValue" (keyup)="filterList()" type="text" class="form-control" placeholder="I'm looking for ..." > <button class="text-100 btn btn-primary" (click)="filterList()">Search</button> </div>
+      </div>
+  </div>
+</section>
+
+  <!-- home content -->
+<div class="album py-3 bg-light">
+    <div class="container">
+
+
+        
+
+
+      <div class="row">
+          <div class="col-3 col-sm-3">
+            <div class="list-group" >
+              <a  class="text-100 list-group-item list-group-item-action active">
+                Categories
+              </a>
+              <a  (click)="goToCategory(category.title)" *ngFor="let category of categories;" class="list-group-item list-group-item-action">
+              <!--   <img src="../../assets/images/vehicles.png" class="cat-img" alt="...">  -->
+                <span class="cat-title">{{replace(category.title)}}</span>  
+                <span class="badge rounded-pill bg-primary float-end">{{category.qte}}</span>
+              </a>
+          </div>
+          </div>
+          <div class="col-19 col-sm-9">
+            <!-- For slider and post add button -->
+            <div class="row">
+              <div class="col-8 col-sm-8">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="../../assets/images/slider1.svg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../../assets/images/slider1.svg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../../assets/images/slider1.svg" class="d-block w-100" alt="...">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+              <div class="col-4 col-sm-4">
+                  <div class="col">
+                    <div (click)="redirect()" class="card new-post shadow-sm">
+                      <img src="../../assets/images/plus.svg"  alt="Add post"  class="img-center-v" />
+                      <p class="card-text add-post">Post add</p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <!-- For products -->
+            <div class="py-3">
+              <h6 class="fw-light">Popular products</h6>
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+               
+                <div class="col" (click)="goToProduct(item)" *ngFor="let item of items.slice(0, 25);">
+                  <div class="card shadow-sm">
+                    <img [src]="item.photos[0]"  alt="Add post"  class="img-center" />
+                    <div class="card-body">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-">
+                          <p class="card-text product-title">{{ shorten(item.details.title, 13)}}</p><br/>
+                          <p class="card-text product-price">{{item.details.price}}</p>
+        <!--              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                        </div>
+                        <img src="../../assets/images/bookmark.svg"  alt="Add post"  class="img-book" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
