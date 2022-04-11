@@ -24,6 +24,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';
+import { SubCategoryComponent } from './sub-category/sub-category.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     LegalComponent,
     CookiesComponent,
     TermsComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    SubCategoryComponent
   ],
   imports: [
     BrowserModule,

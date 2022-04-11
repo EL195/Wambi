@@ -109,6 +109,17 @@ export class HomeComponent implements OnInit {
      });
   }
 
+/*   goToProduct(product){
+    this.router.navigate(['/product'], { queryParams: {
+      item: product,
+       }
+     });
+  }
+ */
+
+format(price){
+  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
 
 
   checkExist(elt: any, tab: any){
