@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
   }
 
   getproducts(){
-   
+    this.items = [];
     this.productsCollection = this.db.collection('products');
     this.products = this.productsCollection.snapshotChanges().pipe(
     map(actions => {
@@ -109,16 +109,11 @@ export class HomeComponent implements OnInit {
      });
   }
 
-/*   goToProduct(product){
-    this.router.navigate(['/product'], { queryParams: {
-      item: product,
-       }
-     });
-  }
- */
 
 format(price){
-  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  if(price!=undefined){
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
 }
 
 
