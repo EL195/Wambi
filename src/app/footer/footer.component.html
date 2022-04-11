@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
         <div class="col">
-            <h3 class="fw-light footer-title">Nos applications</h3>
+            <h3 class="fw-light footer-title">Our applications</h3>
             <div>
                 <div>
                     <div>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col">
-            <h3 class="fw-light footer-title">Support client</h3>
+            <h3 class="fw-light footer-title">Customer Support</h3>
             <div>
                 <ol class="list-type">
                     <li>romywandji@gmail.com</li>
@@ -30,17 +30,17 @@
             </div>
         </div>
         <div class="col">
-            <h3 class="fw-light footer-title">Lien utiles</h3>
+            <h3 class="fw-light footer-title">Useful link</h3>
             <div>
                 <ol class="list-type">
                     <li>
-                        <a href="terms" class="text-white" >Termes et conditions d'utilisation</a>
+                        <a href="terms" class="text-white" >Terms and conditions of use</a>
                     </li>
                     <li>
-                        <a href="privacy" class="text-white" >Politique de cindentialité</a>
+                        <a href="privacy" class="text-white" >Privacy Policy</a>
                     </li>
                     <li>
-                        <a href="billing" class="text-white" >Mentions légales</a>
+                        <a href="legal" class="text-white" >Legal Notice</a>
                     </li>
                     <li>
                         <a href="cookies" class="text-white" >Cookies</a>
@@ -81,7 +81,7 @@
     </div>
   </div>
 
-  <div *ngIf="cookies==null" class="cookie-consent"> <span>This site uses cookies to enhance user experience. see<a href="#" class="ml-1 text-decoration-none">Privacy policy</a> </span>
+  <div *ngIf="cookies==null" class="cookie-consent"> <span>This site uses cookies to enhance user experience. see <a [routerLink]="['/privacy']" class="ml-1 text-decoration-none">privacy policy</a> </span>
     <div class="mt-2 d-flex align-items-center justify-content-center g-2">
          <button class="allow-button mr-1" (click)="allow()">Allow cookies</button> 
          <button class="cancel-button" (click)="cancel()" >cancel</button>

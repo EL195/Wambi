@@ -10,6 +10,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { BillingComponent } from './billing/billing.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { LegalComponent } from './legal/legal.component';
 
 const routes: Routes = [
    { 
@@ -35,6 +36,10 @@ const routes: Routes = [
     { 
       path: 'billing', 
       component: BillingComponent 
+    },
+    { 
+      path: 'legal', 
+      component: LegalComponent 
     },
     { 
       path: 'cookies', 

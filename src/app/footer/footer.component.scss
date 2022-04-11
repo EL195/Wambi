@@ -29,11 +29,10 @@ body {
     left: 20px;
     width: 260px;
     padding-top: 7px;
-    height: 83px;
+    height: 135px;
     color: #fff;
     line-height: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 20px;
     font-size: 14px;
     background: #292929;
     z-index: 120;
@@ -49,7 +48,8 @@ body {
     line-height: 10px;
     border-radius: 3px;
     border: 1px solid #4DB319;
-    background-color: #4DB319
+    background-color: #4DB319;
+    margin: 5px;
 }
 
 .cancel-button {
@@ -60,7 +60,8 @@ body {
     line-height: 10px;
     border-radius: 3px;
     border: 1px solid red;
-    background-color: red
+    background-color: red;
+    margin : 5px;
 }
 li{
     font-weight: 100!important;
