@@ -235,7 +235,7 @@
                 <h1 class="">Relative products</h1>
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4">
                  
-                  <div class="col" (click)="getRaltives(items)" *ngFor="let relprod of infos.slice(0, 10);">
+                  <div class="col" (click)="getRaltives(items)" *ngFor="let relprod of infos.slice(0, 10);" [routerLink]="['/product']" [queryParams]="{item: relprod.id}">
                     <div class="card shadow-sm">
                       <img [src]="relprod.photos[0]"  alt="Add post"  class="img-center" />
                       <div class="card-body">
