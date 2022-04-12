@@ -116,6 +116,10 @@ format(price){
   }
 }
 
+findOs(){
+  this.functions.checkPlatform();
+}
+
 
   checkExist(elt: any, tab: any){
     let state = false;

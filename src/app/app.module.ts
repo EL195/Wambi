@@ -26,6 +26,9 @@ import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 
+import {PlatformModule} from '@angular/cdk/platform';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +49,7 @@ import { SubCategoryComponent } from './sub-category/sub-category.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    PlatformModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
