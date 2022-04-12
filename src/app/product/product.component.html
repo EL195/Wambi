@@ -74,13 +74,13 @@
                     <h2 class="name">
                         {{items.details.title}}
                        <!--  <small>Product by <a href="javascript:void(0);">Adeline</a></small> -->
-                       <br>
+  <!--                      <br>
                         <i class="fa fa-star fa-2x text-primary"></i>
                         <i class="fa fa-star fa-2x text-primary"></i>
                         <i class="fa fa-star fa-2x text-primary"></i>
                         <i class="fa fa-star fa-2x text-primary"></i>
                         <i class="fa fa-star fa-2x text-muted"></i>
-                        <br>
+                        <br> -->
                        <h5> <span class="fa fa-eye fa-2x"><small>{{items.views.length}}persons</small></span></h5>
                        <!--  <a href="javascript:void(0);">109 customer reviews</a> -->
                     </h2>
@@ -233,7 +233,7 @@
             <!-- Relative products -->
             <div class="py-3 pt-5">
                 <h1 class="">Relative products</h1>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4">
+                <div class="row row-cols-2 row-cols-sm-2 row-cols-md-5 g-4">
                  
                   <div class="col" (click)="getRaltives(items)" *ngFor="let relprod of infos.slice(0, 10);" [routerLink]="['/product']" [queryParams]="{item: relprod.id}">
                     <div class="card shadow-sm">

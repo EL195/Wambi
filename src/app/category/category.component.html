@@ -9,7 +9,7 @@
             </ol>
           </nav>
         <div class="d-flex justify-content-center row">
-            <div class="col-3 col-sm-3">
+            <div class="col-sm-3 col-md-3 mb-3">
                 <div class="list-group bg-white">
                     <a  class="gootxt text-100 list-group-item list-group-item-action active">
                         {{replace(item)}}
@@ -33,9 +33,10 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="row p-2 m-3 bg-white border rounded" *ngFor="let product of items;">
+                <div class="row row-cols-2 row-cols-sm-1 row-cols-md-1 ps2">
+                <div class="row p-2 bg-white border rounded" *ngFor="let product of items;">
                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" [src]="product.photos[0]"></div>
-                    <div class="col-md-6 mt-1">
+                    <div class="col-md-6 mt-1 p-4">
                         <h5>{{product.details.title}}</h5>
                         <div class="d-flex flex-row">
                             <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>310</span>
@@ -56,6 +57,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>
