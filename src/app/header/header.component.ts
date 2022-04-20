@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   }
 
   redirect(){
-    this.functions.redirect();
+    this.functions.checkPlatform();
   }
 
 }
