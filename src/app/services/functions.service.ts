@@ -29,6 +29,9 @@ export class FunctionsService {
     if(this.platform.ANDROID){
       this.playstore();
     }
+    if(this.platform.isBrowser){
+      this.playstore();
+    }
   }
 
   appstore(){

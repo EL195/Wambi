@@ -1,6 +1,7 @@
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable } from 'rxjs';import { Component, OnInit } from '@angular/core';
+import { FunctionsService } from '../services/functions.service';
 
 @Component({
   selector: 'app-product',
@@ -24,6 +25,7 @@ export class ProductComponent implements OnInit {
     private route : ActivatedRoute,
     private db: AngularFirestore,
     private router:Router,
+    private functions : FunctionsService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,9 @@ export class ProductComponent implements OnInit {
         });
   }
 
+  redirect(){
+    this.functions.checkPlatform();
+  }
   
   getproducts(item: any) {
     console.log(item)
