@@ -22,7 +22,7 @@
                                     <img [src]="items.photos[0]"  class="img-responsive d-block w-100 h-img" alt="...">
                                   </div>
                                   <div *ngFor="let images of items.photos; let index = index;" class="carousel-item">
-                                    <img [src]="images" class="h-img d-block w-100" alt="...">
+                                    <img [src]="images" class="d-block w-100" alt="...">
                                   </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -35,28 +35,14 @@
                                 </button>
                               </div>
                         </div>
-                        <div class="p-4">
-                            <h1>Descirption</h1>
-                            <p>{{items.details.description}}</p>
-                            <div class="row p-3">
-                                <div class="col"><i class="fa fa-map-marker fa-2x text-primary"></i> {{items.details.citie}}, {{items.details.locality}}</div>
-                                <div *ngIf="items.details.RAM" class="col"> RAM : {{items.details.RAM}}</div>
-                                <div class="col">{{items.details.color}}</div>
-                                <div class="col">  <i class="fa fa-exclamation-triangle fa-2x text-primary"></i> {{items.details.condition}}</div>
-                            </div>
-                            <div class="row p-3">
-                                <div *ngIf="items.details.q_exch_poss" class="col"><i class="fa fa-info fa-2x text-primary"></i> q_exch_poss : {{items.details.q_exch_poss}}</div>
-                                <div *ngIf="items.details.seat_num" class="col">Seats : {{items.details.seat_num}}</div>
-                                <div *ngIf="items.details.brand" class="col">Brand : {{items.details.brand}}</div>
-                                <div *ngIf="items.details.model" class="col">Model : {{items.details.model}}</div>
-                                <div *ngIf="items.details.internal_storage" class="col"> Storage : {{items.details.internal_storage}}</div>
-                                <div *ngIf="items.details.screen_size" class="col">Screen size : {{items.details.screen_size}}</div>
-                                <div *ngIf="items.details.mileage_km" class="col">KM : {{items.details.mileage_km}}</div>
-                                <div *ngIf="items.details.fuel_type"class="col">  <i class="fa fa-exclamation-triangle fa-2x text-primary"></i> {{items.details.fuel_type}}</div>
-                            </div>
-                            <div class="pt-3">
-                                <span *ngFor="let keyword of items.keyword; let index = index;" class="badge badge-primary">{{keyword}}</span>
-                            </div>
+                        <div class="marge">
+                            <ul class="item-property-list">
+                                <h1>Properties</h1>
+                                <li *ngFor="let elt of items.details | keyvalue" class="listt">
+                                 <p *ngIf="elt.key != 'description'"><span class="key">{{replace(elt.key)}} : &nbsp;</span>{{elt.value}}</p>
+                                </li>
+                            </ul>
+
                             <div class="pt-5">
                                 <h1>Comments</h1>
                                 <div class="comments" *ngFor="let comments of items.comments; let index = index;">
@@ -211,15 +197,15 @@
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <a href="javascript:void(0);" class="btn btn-success btn-lg">Make offer now</a>
                         </div>
-<!--                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <div class="btn-group pull-right">
-                                <button class="btn btn-white btn-default"><i class="fa fa-star"></i> Add to wishlist</button>
-                                <button class="btn btn-white btn-default"><i class="fa fa-envelope"></i> Contact Seller</button>
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="pt-4">
+                                <h1>Description</h1><br/>
+                                <p>{{items.details.description}}</p>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
 
-                    <div class="card" style="margin-left:auto;margin-right:auto; width: 18rem; margin-top:50px;">
+                    <div class="card" style="margin-left:auto;margin-right:auto; width: 100%; margin-top:50px;">
                         <img src="../../assets/images/logo.png" class="card-img-top" alt="...">
                         <div class="card-body text-center">
                           <h5 class="card-title">{{items.userId}}</h5>
@@ -242,11 +228,12 @@
                         <div class="d-flex justify-content-between align-items-center">
                           <div class="btn-">
                             <p class="card-text product-title">{{ shorten(relprod.details.title, 13)}}</p><br/>
-                            <p class="card-text product-price">{{relprod.details.price}}</p>
+                            <p class="card-text product-price">{{format(relprod.details.price)}} {{relprod.currency}}</p>
+                            <p class="card-text">{{format(relprod.details.citie)}}, {{relprod.details.locality}}</p>
             <!--              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                           </div>
-                          <img src="../../assets/images/bookmark.svg"  alt="Add post"  class="img-book" />
+                         <!--  <img src="../../assets/images/bookmark.svg"  alt="Add post"  class="img-book" /> -->
                         </div>
                       </div>
                     </div>

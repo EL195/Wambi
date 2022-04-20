@@ -75,9 +75,10 @@
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-">
                           <p class="card-text product-title">{{ shorten(item.details.title, 13)}}</p><br/>
-                          <p class="card-text product-price">{{format(item.details.price)}}</p>
+                          <p class="card-text product-price">{{format(item.details.price)}} {{item.currency}}</p>
+                          <p class="card-text">{{format(item.details.citie)}}, {{item.details.locality}}</p>
                         </div>
-                        <img src="../../assets/images/bookmark.svg"  alt="Add post"  class="img-book" />
+                       <!--  <img src="../../assets/images/bookmark.svg"  alt="Add post"  class="img-book" /> -->
                       </div>
                     </div>
                   </div>

@@ -1,3 +1,4 @@
+import { Platform } from '@angular/cdk/platform';
 import { Component, OnInit } from '@angular/core';
 import { FunctionsService } from '../services/functions.service';
 
@@ -10,13 +11,14 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private functions : FunctionsService,
+    public platform: Platform
   ) { }
 
   ngOnInit(): void {
   }
 
   redirect(){
-    this.functions.redirect();
+    this.functions.checkPlatform();
   }
 
 }

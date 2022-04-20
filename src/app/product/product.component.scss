@@ -9,6 +9,23 @@ body{
     margin-bottom: -1.5rem;
     list-style: none;
 }
+.key{
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+ol, ul {
+    padding-left: 0rem;
+}
+
+.listt{
+    list-style:none;
+}
+
+.marge{
+    padding: 50px;
+}
 
 .badge{
  background-color: #2f383d;
