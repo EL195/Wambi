@@ -30,7 +30,7 @@ export class FunctionsService {
       this.playstore();
     }
     if(this.platform.isBrowser){
-      this.playstore();
+      this.choose();
     }
   }
 
@@ -39,5 +39,9 @@ export class FunctionsService {
   }
   playstore(){
     window.open("https://play.google.com/store/apps/details?id=com.wambi", "_blank");
+  }
+
+  choose(){
+    this.router.navigate(['choose']);
   }
 }

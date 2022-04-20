@@ -14,10 +14,13 @@ export class ProductComponent implements OnInit {
 
   productsCollection : AngularFirestoreCollection<any[]> | undefined;
   productsRCollection : AngularFirestoreCollection<any[]> | undefined;
+  userCollection : AngularFirestoreCollection<any[]> | undefined;
   productsR : Observable<any> | undefined;
   products : Observable<any> | undefined;
+  users : Observable<any> | undefined;
   items : any = [];
   infos : any = [];
+  user : any = [];
 
 
 
@@ -55,9 +58,29 @@ export class ProductComponent implements OnInit {
     );
     this.products.subscribe(da=>{
       this.items = da[0];
-      console.log(this.items);
+      console.log(da[0].userId);
+      //this.getRaltives(this.items)
+      this.getAuthor(da[0].userId)
+    })
+  }
+
+  getAuthor(id){
+    this.userCollection = this.db.collection('users', ref => ref.where('userId', '==', id));
+    this.users = this.userCollection.snapshotChanges().pipe(
+    map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      });
+      })
+    );
+    this.users.subscribe(da=>{
+      this.user = da[0];
+      console.log(this.user);
       this.getRaltives(this.items)
     })
+
   }
 
 

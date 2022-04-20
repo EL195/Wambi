@@ -11,6 +11,7 @@ import { BillingComponent } from './billing/billing.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LegalComponent } from './legal/legal.component';
+import { ChooseComponent } from './choose/choose.component';
 
 const routes: Routes = [
    { 
@@ -46,6 +47,10 @@ const routes: Routes = [
       component: CookiesComponent 
     },
     { 
+      path: 'choose', 
+      component: ChooseComponent 
+    },
+    { 
       path: 'notfound', 
       component: NotfoundComponent 
     },
@@ -55,7 +60,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

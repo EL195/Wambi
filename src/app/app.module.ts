@@ -27,6 +27,8 @@ import { FormsModule } from '@angular/forms';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 
 import {PlatformModule} from '@angular/cdk/platform';
+import { ComponentsmodalComponent } from './componentsmodal/componentsmodal.component';
+import { ChooseComponent } from './choose/choose.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import {PlatformModule} from '@angular/cdk/platform';
     CookiesComponent,
     TermsComponent,
     NotfoundComponent,
-    SubCategoryComponent
+    SubCategoryComponent,
+    ComponentsmodalComponent,
+    ChooseComponent
   ],
   imports: [
     BrowserModule,

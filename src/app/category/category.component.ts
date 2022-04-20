@@ -45,7 +45,8 @@ export class CategoryComponent implements OnInit {
   }
 
   replace(string: any){
-    string = string.replace('_', ' ');
+    //string = string.replace('_', ' ');
+    string = string.split('_').join(' ');
     return string;
   }
 
