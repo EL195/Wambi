@@ -20,6 +20,15 @@ body {
     width: 100%
 }
 
+.titre-p{
+    font-weight: 700;
+}
+
+.icone {
+    width: 20px;
+    display: block;
+}
+
 @media only screen and (min-width: 768px) {
     .ps2{
         padding-left: 10px;
@@ -35,10 +44,12 @@ body {
     margin-top: -40px;
 }
 .cat-title{
-    font-size: .8rem!important;
+    font-size: 1.1rem!important;
     font-weight: 100!important;
     text-transform:capitalize;
 }
+
+
 
 .head{
     padding-top: 25px;
@@ -67,7 +78,7 @@ body {
 
 
 .hand{
-    cursor: pointer;
+    cursor: pointer!important;
  }
 
  .hand:hover{

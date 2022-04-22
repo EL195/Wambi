@@ -107,8 +107,28 @@ ol, ul {
     width: 100%;
 }
 
+.icone {
+    width: 15px;
+}
+
+.loc{
+    font-size: .9rem!important;
+    display: flex;
+}
+
+.product-title{
+    font-size: 1rem!important;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.card-text:last-child {
+    margin-top: -10px;
+}
+
 .text-green{
     color: #4DB319;
+    margin-top: -35px
 }
 
 .product-content .product-deatil {

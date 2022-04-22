@@ -5,6 +5,7 @@ import firebase from 'firebase/compat/app';
 import { map, Observable } from 'rxjs';
 import { FunctionsService } from '../services/functions.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import en from 'src/assets/json/en';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  chaines : any = en.translation;
   productsCollection : AngularFirestoreCollection<any[]> | undefined;
   products : Observable<any> | undefined;
   items : any = [];
@@ -28,13 +30,20 @@ export class HomeComponent implements OnInit {
     private router:Router,
     private db: AngularFirestore,
     private functions : FunctionsService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    //private chaines : en
   ) { }
 
   ngOnInit(): void {
+    //console.log(this.chaines.translation);
     this.spinner.show();
    this.getproducts();
   }
+
+  placeTo(item){
+   return this.functions.translate(item);
+  }
+
 
   test(){
     this.router.navigate(['/product'], { queryParams: {

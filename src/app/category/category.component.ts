@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
+import { FunctionsService } from '../services/functions.service';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class CategoryComponent implements OnInit {
     private route : ActivatedRoute,
     private db: AngularFirestore,
     private router:Router,
+    private functions : FunctionsService,
   ) { }
 
   ngOnInit(): void {
@@ -106,7 +108,7 @@ export class CategoryComponent implements OnInit {
   getproducts(item){
     this.items = [];
     console.log(item)
-    this.productsCollection = this.db.collection('products', ref => ref.where('category', '==', item));
+    this.productsCollection = this.db.collection('products', ref => ref.where('category', '==', item).orderBy("create_at", "desc"));
     this.products = this.productsCollection.snapshotChanges().pipe(
     map(actions => {
       return actions.map(a => {
@@ -124,6 +126,12 @@ export class CategoryComponent implements OnInit {
       this.getCategories(this.items);
     })
   }
+
+
+  placeTo(item){
+    return this.functions.translate(item);
+   }
+
 
   getCategories(items: any) {
     items.forEach((elt: any)=>{

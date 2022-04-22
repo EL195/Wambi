@@ -1,11 +1,14 @@
 import { Platform } from '@angular/cdk/platform';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import en from 'src/assets/json/en';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FunctionsService {
+  chaines : any = en.translation;
+
 
   constructor(
     public router: Router,
@@ -14,6 +17,14 @@ export class FunctionsService {
 
 
   redirect(){
+
+  }
+
+  translate(item){
+    //console.log("test ici :", item)
+    //console.log(obj[name]);
+    ///console.log(this.chaines[item]);
+    return this.chaines[item];
 
   }
 

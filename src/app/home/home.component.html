@@ -1,7 +1,7 @@
 <section class="py-5 text-center  bg-custom">
     <div class="row height d-flex justify-content-center align-items-center">
       <div class="col-md-6 pp">
-        <p class="text-white text-100">Find anything</p>
+        <p class="titre text-white text-100">Find anything</p>
           <div class="search"> <i class="fa fa-search"></i> <input [(ngModel)]="searchValue" (keyup)="filterList()" type="text" class="form-control" placeholder="I'm looking for ..." > <button class="text-100 btn btn-primary" (click)="filterList()">Search</button> </div>
       </div>
   </div>
@@ -18,12 +18,13 @@
       <div class="row">
           <div class="col-sm-3 col-md-3 mb-3">
             <div class="list-group" >
-              <a  class="text-100 list-group-item list-group-item-action active">
-                Categories
+              <a  class="cat-title text-100 list-group-item list-group-item-action active">
+                Categories 
               </a>
               <a  (click)="goToCategory(category.title)" *ngFor="let category of categories;" class="hand list-group-item list-group-item-action">
-              <!--   <img src="../../assets/images/vehicles.png" class="cat-img" alt="...">  -->
-                <span class="cat-title">{{replace(category.title)}}</span>  
+             <img src="../../assets/images/categories/{{category.title}}.png" class="cat-img" alt="...">   
+               <!--  <span class="cat-title">{{chaines.translation.properties)}}</span>   -->
+                <span class="cat-title">{{placeTo(category.title)}}</span>  
                 <span class="badge rounded-pill bg-primary float-end">{{category.qte}}</span>
               </a>
           </div>
@@ -57,7 +58,7 @@
               <div class="col-4 col-sm-4">
                   <div class="col">
                     <div (click)="findOs()" class="hand card new-post shadow-sm">
-                      <img src="../../assets/images/plus.svg"  alt="Add post"  class="img-center-v" />
+                      <img src="../../assets/images/add.png"  alt="Add post"  class="img-center-v" />
                       <p class="card-text add-post">Post add</p>
                     </div>
                   </div>
@@ -65,7 +66,7 @@
             </div>
             <!-- For products -->
             <div class="py-3">
-              <h6 class="fw-light">Popular products</h6>
+              <h6 class="fw-light titre">Recently added products</h6>
               <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 g-3">
                
                 <div class="col" (click)="goToProduct(item.id)" *ngFor="let item of items.slice(0, 28);">
@@ -74,9 +75,11 @@
                     <div class="card-body">
                       <div class="justify-content-between align-items-center">
                         <div class="">
-                          <p class="card-text product-title">{{ shorten(item.details.title, 25)}}</p><br/>
+                          <p class="card-text product-title">{{ shorten(item.details.title, 20)}}</p><br/>
                           <p class="card-text product-price">{{format(item.details.price)}} {{item.currency}}</p>
-                          <p class="card-text" style="font-size:10px!important; text-transform: capitalize;">{{format(item.details.citie)}}<br/> {{item.details.locality}}</p>
+                          <p class="card-text" style="font-size:10px!important; text-transform: capitalize;">
+                            <img src="../../assets/images/location-outline.svg"  alt="Location"  class="icone" />{{format(item.details.citie)}}, {{item.details.locality}}
+                          </p>
                         </div>
                        <!--  <img src="../../assets/images/bookmark.svg"  alt="Add post"  class="img-book" /> -->
                       </div>
