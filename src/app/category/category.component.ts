@@ -84,7 +84,7 @@ export class CategoryComponent implements OnInit {
     this.items = [];
     this.items = [];
     console.log(item)
-    this.productsCollection = this.db.collection('products', ref => ref.where('subCategory', '==', item));
+    this.productsCollection = this.db.collection('products', ref => ref.where('subCategory', '==', item).orderBy("create_at", "desc"));
     this.products = this.productsCollection.snapshotChanges().pipe(
     map(actions => {
       return actions.map(a => {

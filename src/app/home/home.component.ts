@@ -44,7 +44,8 @@ export class HomeComponent implements OnInit {
 
   getproducts(){
     this.items = [];
-    this.productsCollection = this.db.collection('products');
+    //this.productsCollection = this.db.collection('products').orderBy("name", "desc");
+    this.productsCollection = this.db.collection('products', ref => ref.orderBy("create_at", "desc"));
     this.products = this.productsCollection.snapshotChanges().pipe(
     map(actions => {
       return actions.map(a => {
@@ -56,7 +57,7 @@ export class HomeComponent implements OnInit {
     );
     this.products.subscribe(da=>{
       this.items = da;
-      //console.log(this.items);
+      console.log(this.items);
       this.goalList = da;
       this.loadedGoalList = da;
       this.getCategories(this.items);
@@ -160,7 +161,7 @@ findOs(){
   }
 
   shorten(text: string, max: number) {
-    return text && text.length > max ? text.slice(0,max).split(' ').slice(0, -1).join('') : text
+    return text && text.length > max ? text.slice(0,max).split(' ').slice(0, -1).join(' ') + '...' : text
 }
 
   initializeItems(): void {

@@ -41,6 +41,10 @@
     text-transform:capitalize;
 }
 
+.product-title{
+    font-size: 14px!important;
+    text-transform: capitalize;
+}
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
@@ -48,6 +52,37 @@
         height: auto;
         padding: 16px!important;
     }
+
+    .card-img-top {
+        width: 100%;
+        height: 35vw!important;
+        object-fit: cover;
+    }
+
+/*     .card-body {
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+        height: 40vw;
+    } */
+
+    
+}
+
+@media only screen and (min-width: 768px) {
+
+    .card-img-top {
+        width: 100%;
+        height: 10vw!important;
+        object-fit: cover;
+    }
+
+/*     .card-body {
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+        height: 14vw;
+    } */
+
+    
 }
 
 .hand{
@@ -66,8 +101,9 @@
 
 .product-price{
     margin-bottom: 0.7rem;
-    font-weight: 100;
+    font-weight: 400;
     color :  #4DB319;
+    font-size: 12px!important;
     margin-top: -40px!important;
 }
 
@@ -78,12 +114,17 @@
     width: 40%;
 }
 
+.card-img-top {
+    width: 100%;
+    height: 10vw;
+    object-fit: cover;
+}
+
 .img-center{
     margin-left: auto;
     margin-right: auto;
     display: block;
-    width: 100%!important;
-    height : 150px!important;
+    width: 100%;
 }
 .pp{
     padding-top: 25px;
@@ -123,6 +164,8 @@ body {
     top: 20px;
     left: 16px
 }
+
+
 
 .search button {
     position: absolute;
