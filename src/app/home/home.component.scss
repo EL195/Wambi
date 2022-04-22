@@ -1,7 +1,11 @@
 .bg-custom{
-   background-color: #0B7AFF; 
-    /* background-color: #4DB319;*/
+   background-image:url('../../assets/images/header-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
 }
+
 
 .text-green{
     color: #4DB319;
