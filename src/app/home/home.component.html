@@ -68,13 +68,13 @@
               <h6 class="fw-light">Popular products</h6>
               <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 g-3">
                
-                <div class="col" (click)="goToProduct(item.id)" *ngFor="let item of items.slice(0, 25);">
+                <div class="col" (click)="goToProduct(item.id)" *ngFor="let item of items.slice(0, 28);">
                   <div class="hand card shadow-sm">
                     <img [src]="item.photos[0]"  alt="Add post"  class="card-img-top img-center" />
                     <div class="card-body">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-">
-                          <p class="card-text product-title">{{ shorten(item.details.title, 17)}}</p><br/>
+                      <div class="justify-content-between align-items-center">
+                        <div class="">
+                          <p class="card-text product-title">{{ shorten(item.details.title, 25)}}</p><br/>
                           <p class="card-text product-price">{{format(item.details.price)}} {{item.currency}}</p>
                           <p class="card-text" style="font-size:10px!important; text-transform: capitalize;">{{format(item.details.citie)}}<br/> {{item.details.locality}}</p>
                         </div>
@@ -90,3 +90,6 @@
     </div>
   </div>
 </div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white; font-size: 25px; text-align: center;" > Please wait <br/>Loading... </p></ngx-spinner>
+

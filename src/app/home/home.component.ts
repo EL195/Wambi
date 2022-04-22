@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import firebase from 'firebase/compat/app';
 import { map, Observable } from 'rxjs';
 import { FunctionsService } from '../services/functions.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Component({
@@ -27,9 +28,11 @@ export class HomeComponent implements OnInit {
     private router:Router,
     private db: AngularFirestore,
     private functions : FunctionsService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
+    this.spinner.show();
    this.getproducts();
   }
 
@@ -66,22 +69,28 @@ export class HomeComponent implements OnInit {
 
 
   getCategories(items: any) {
-    items.forEach((elt: any)=>{
-      let cat = {
-        title : elt.category,
-        qte : 1
-      }
-      if(this.categories.length<1){
-        this.categories.push(cat);
-      }
-      else{
-        if(this.checkExist(elt, this.categories)==false){
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      items.forEach((elt: any)=>{
+        let cat = {
+          title : elt.category,
+          qte : 1
+        }
+        if(this.categories.length<1){
           this.categories.push(cat);
         }
+        else{
+          if(this.checkExist(elt, this.categories)==false){
+            this.categories.push(cat);
+          }
+  
+        }
+      });
+      console.log(this.categories);
+      this.spinner.hide();
+    }, 5000);
+    
 
-      }
-    });
-    console.log(this.categories);
   }
 
   replace(string: any){

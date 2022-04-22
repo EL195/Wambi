@@ -102,9 +102,20 @@ export class ProductComponent implements OnInit {
       })
     );
     this.productsR.subscribe(da=>{
-      this.infos = da;
-      console.log(this.items);
+      //this.infos = da;
+      //console.log(this.items);
+      this.filter(da);
     })
+  }
+
+  filter(data){
+    console.log('tan',data);
+    data.forEach((elt: any)=>{
+      if(elt.id!=this.items.id){
+        this.infos.push(elt);
+      }
+    });
+
   }
 
   format(price){
@@ -112,7 +123,8 @@ export class ProductComponent implements OnInit {
   }
 
   shorten(text: string, max: number) {
-    return text && text.length > max ? text.slice(0,max).split(' ').slice(0, -1).join('') : text
+    //return text && text.length > max ? text.slice(0,max).split(' ').slice(0, -1).join('') : text
+    return text && text.length > max ? text.slice(0,max).split(' ').slice(0, -1).join(' ') + '...' : text
 }
 
 }

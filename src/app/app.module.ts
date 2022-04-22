@@ -30,6 +30,8 @@ import {PlatformModule} from '@angular/cdk/platform';
 import { ComponentsmodalComponent } from './componentsmodal/componentsmodal.component';
 import { ChooseComponent } from './choose/choose.component';
 
+// Import library module
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { ChooseComponent } from './choose/choose.component';
     AppRoutingModule,
     FormsModule,
     PlatformModule,
+    NgxSpinnerModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
