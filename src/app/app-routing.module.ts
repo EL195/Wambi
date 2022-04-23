@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+//import { MetaGuard } from '@ngx-meta/core';
 
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
@@ -20,7 +20,14 @@ const routes: Routes = [
     },
     { 
     path: 'product', 
-    component: ProductComponent 
+    component: ProductComponent,
+     data: {
+      meta: {
+        title: 'Sweet home',
+        override: true,
+        description: 'Home, home sweet home... and what?'
+      }
+    } 
     },
     { 
       path: 'category', 

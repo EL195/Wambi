@@ -14,8 +14,7 @@ import { LegalComponent } from './legal/legal.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { TermsComponent } from './terms/terms.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-
-
+//import { MetaModule } from '@ngx-meta/core';
 // Firebase
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
@@ -32,6 +31,9 @@ import { ChooseComponent } from './choose/choose.component';
 
 // Import library module
 import { NgxSpinnerModule } from "ngx-spinner";
+
+
+
 
 @NgModule({
   declarations: [
@@ -64,3 +66,4 @@ import { NgxSpinnerModule } from "ngx-spinner";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
