@@ -24,6 +24,7 @@ export class ProductComponent implements OnInit {
   users : Observable<any> | undefined;
   items : any = [];
   infos : any = [];
+  info : any = [];
   user : any = [];
 
 
@@ -116,7 +117,7 @@ export class ProductComponent implements OnInit {
 
   getRaltives(item){
     console.log(item)
-    this.productsRCollection = this.db.collection('products', ref => ref.where('subCategory', '==', item.subCategory));
+    this.productsRCollection = this.db.collection('products', ref => ref.where('subCategory', '==', item.subCategory).where('id', '!=', item.id));
     this.productsR = this.productsRCollection.snapshotChanges().pipe(
     map(actions => {
       return actions.map(a => {
@@ -127,21 +128,21 @@ export class ProductComponent implements OnInit {
       })
     );
     this.productsR.subscribe(da=>{
-      //this.infos = da;
-      //console.log(this.items);
-      this.filter(da);
+      this.infos = da;
     })
   }
 
-  filter(data){
-    console.log('tan',data);
+/*   filter(data){
     data.forEach((elt: any)=>{
       if(elt.id!=this.items.id){
-        this.infos.push(elt);
+        this.info.push(elt);
       }
     });
+    this.infos = [];
+    this.infos = this.info;
+    console.log('longueur',this.infos.length);
 
-  }
+  } */
 
   format(price){
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
