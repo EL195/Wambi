@@ -117,7 +117,7 @@ export class ProductComponent implements OnInit {
 
   getRaltives(item){
     console.log(item)
-    this.productsRCollection = this.db.collection('products', ref => ref.where('subCategory', '==', item.subCategory).where('id', '!=', item.id));
+    this.productsRCollection = this.db.collection('products', ref => ref.where('subCategory', '==', item.subCategory));
     this.productsR = this.productsRCollection.snapshotChanges().pipe(
     map(actions => {
       return actions.map(a => {
@@ -128,9 +128,21 @@ export class ProductComponent implements OnInit {
       })
     );
     this.productsR.subscribe(da=>{
+      console.log("relative", da)
+      let ob = item;
+      da = da.filter(item => item.id !== ob.id);
       this.infos = da;
     })
   }
+
+/*   transform(items: any[], filter :any) {
+    if (!items || !filter) {
+        return items;
+    }
+    // filter items array, items which match and return true will be
+    // kept, false will be filtered out
+    return items.filter(item => item.id.indexOf(filter.id) !== -1);
+} */
 
 /*   filter(data){
     data.forEach((elt: any)=>{
