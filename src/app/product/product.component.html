@@ -5,7 +5,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item" style="text-transform: capitalize;"><a [routerLink]="['/category']" [queryParams]="{item: items.category}" >{{replace(items.category)}}</a></li>
+              <li class="breadcrumb-item" style="text-transform: capitalize;"><a [routerLink]="['/category']" [queryParams]="{item: items.category}" >{{placeTo(items.category)}}</a></li>
              <!--  <li class="breadcrumb-item" style="text-transform: capitalize;"><a [routerLink]="['/subcategory']" [queryParams]="{item: items.subCategory}">{{replace(items.subCategory)}}</a></li> -->
               <li class="breadcrumb-item active" aria-current="page">{{items.details.title}}</li>
             </ol>
@@ -39,7 +39,13 @@
                             <ul class="item-property-list">
                                 <h1>Properties</h1>
                                 <li *ngFor="let elt of items.details | keyvalue" class="listt">
-                                 <p *ngIf="elt.key != 'description'"><span class="key">{{replace(elt.key)}} : &nbsp;</span>{{elt.value}}</p>
+                                 <div *ngIf="elt.key != 'description'">
+                                     <div *ngIf="elt.key != 'title'">
+                                        <p *ngIf="elt.key != 'price'"> <span class="key">{{replace(elt.key)}} : &nbsp;</span><span style="text-transform:capitalize;">{{placeTo(elt.value) || replace(elt.value)}}</span></p>
+                                     </div>
+                                    
+                                    
+                                 </div>
                                 </li>
                             </ul>
 
@@ -47,7 +53,7 @@
                                 <h1>Comments ({{items.comments.length}})</h1>
                                 <div class="comments" *ngFor="let comments of items.comments; let index = index;">
                                     <p>{{comments.content}}</p>
-                                    <h6>{{comments.userId}}</h6>
+                                   <h6>{{foundAuthor(comments.userId).fullname}}</h6> 
                                 </div>
                                 
                             </div>
@@ -248,5 +254,9 @@
         <!-- end product -->
     </div>
 </div> 
+
+
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white; font-size: 25px; text-align: center;" > Please wait <br/>Loading... </p></ngx-spinner>
 
 

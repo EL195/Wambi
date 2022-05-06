@@ -5,6 +5,8 @@ import { FunctionsService } from '../services/functions.service';
 
 import { Injectable } from '@angular/core';
 import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
+import { threadId } from 'worker_threads';
+import { NgxSpinnerService } from 'ngx-spinner';
 //import { MetaService } from '@ngx-meta/core';
 
 @Component({
@@ -21,11 +23,17 @@ export class ProductComponent implements OnInit {
   userCollection : AngularFirestoreCollection<any[]> | undefined;
   productsR : Observable<any> | undefined;
   products : Observable<any> | undefined;
+  auteurs : Observable<any> | undefined;
+  auteurCollection : AngularFirestoreCollection<any[]> | undefined;
+  auteurAll : any = [];
   users : Observable<any> | undefined;
   items : any = [];
   infos : any = [];
   info : any = [];
   user : any = [];
+  auth: any = [];
+  commentaires : any = [];
+  
 
 
 
@@ -34,14 +42,30 @@ export class ProductComponent implements OnInit {
   constructor(
     private route : ActivatedRoute,
     private db: AngularFirestore,
+    private spinner: NgxSpinnerService,
     private router:Router,
     private functions : FunctionsService,
     private title: Title, 
     private meta: Meta
-  ) { }
+  ) { 
+    
+    this.auteurCollection = this.db.collection('users');
+    this.auteurs = this.auteurCollection.snapshotChanges().pipe(
+    map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      });
+      })
+    );
+    this.auteurs.subscribe(da=>{
+      this.auteurAll = da;
+      console.log(this.auteurAll);
+    })
+  }
 
   ngOnInit(): void {
-   // this.title.setTitle("Juste pour tester");
     this.sub = this.route
     .queryParams
     .subscribe( params  => {
@@ -90,6 +114,37 @@ export class ProductComponent implements OnInit {
     })
   }
 
+/*   getTheAuthor(){
+    this.auteurCollection = this.db.collection('users');
+    this.auteurs = this.auteurCollection.snapshotChanges().pipe(
+    map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      });
+      })
+    );
+    this.auteurs.subscribe(da=>{
+      this.auteur = da;
+      console.log(this.auteur);
+    })
+    
+  } */
+
+  foundAuthor(user){
+   // console.log(this.auteurAll)
+    this.auteurAll.forEach(element => {
+      //console.log("Test", element);
+      if(element.userId==user){
+        this.auth = element;
+        console.log(this.auth)
+      }
+    });
+    //console.log(this.auth)
+    return this.auth;
+  }
+
   getAuthor(id){
     this.userCollection = this.db.collection('users', ref => ref.where('userId', '==', id));
     this.users = this.userCollection.snapshotChanges().pipe(
@@ -106,17 +161,21 @@ export class ProductComponent implements OnInit {
       console.log(this.user);
       this.getRaltives(this.items)
     })
-
   }
 
 
   replace(string: any){
-    string = string.replace('_', ' ');
+    string = string.toString().replace('_', ' ');
     return string;
   }
 
+
+   placeTo(item){
+   return this.functions.translate(item);
+  }
+
   getRaltives(item){
-    console.log(item)
+    //sconsole.log(item)
     this.productsRCollection = this.db.collection('products', ref => ref.where('subCategory', '==', item.subCategory));
     this.productsR = this.productsRCollection.snapshotChanges().pipe(
     map(actions => {
@@ -132,29 +191,17 @@ export class ProductComponent implements OnInit {
       let ob = item;
       da = da.filter(item => item.id !== ob.id);
       this.infos = da;
+      //this.getTheAuthor();
     })
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+     // console.log(this.categories);
+      this.spinner.hide();
+    }, 2000);
   }
 
-/*   transform(items: any[], filter :any) {
-    if (!items || !filter) {
-        return items;
-    }
-    // filter items array, items which match and return true will be
-    // kept, false will be filtered out
-    return items.filter(item => item.id.indexOf(filter.id) !== -1);
-} */
 
-/*   filter(data){
-    data.forEach((elt: any)=>{
-      if(elt.id!=this.items.id){
-        this.info.push(elt);
-      }
-    });
-    this.infos = [];
-    this.infos = this.info;
-    console.log('longueur',this.infos.length);
-
-  } */
 
   format(price){
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");

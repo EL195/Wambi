@@ -1,5 +1,4 @@
 export default {
-  
   translation: {
     lotions: "Lotions",
     body_lotions: 'Body Lotions',
@@ -33,27 +32,33 @@ export default {
     click_to_join_live: 'Click to join live',
     invite_friends: 'Invite friends',
     accept_speaker_question: 'will be added as speaker',
-    accept_speaker_desc: 'Are sure you want him/her to be part of your stream as a speaker?',
+    accept_speaker_desc:
+      'Are sure you want him/her to be part of your stream as a speaker?',
     remove_speaker_question: 'will be remove as speaker',
-    remove_speaker_desc: 'Are sure you want him/her to be removed of your stream as a speaker?',
+    remove_speaker_desc:
+      'Are sure you want him/her to be removed of your stream as a speaker?',
     leave_streaming_question: 'Leaving Streaming?',
-    leave_streaming_desc: 'You are currently watching a streaming, sure you want to leave?',
+    leave_streaming_desc:
+      'You are currently watching a streaming, sure you want to leave?',
     stop_streaming_question: 'Stop streaming ?',
-    stop_streaming_desc: 'You are currently streaming. Sure you want to cancel?',
+    stop_streaming_desc:
+      'You are currently streaming. Sure you want to cancel?',
     are_listening: 'are listening',
     ask_join: 'Ask to join',
     ask_join_desc: 'Ask the streamers to join the live',
     raise_hand: 'RAISE YOUR HAND',
     live_goingon: 'Lives going on right now',
     happening_now: 'Happening Now',
-    live_notice: '✌️ reminder ✌️ Things that are NOT OK: Bullying, hate speech, underwear, nudity, or violence. Please report any inappropriate behavior.',
+    live_notice:
+      '✌️ reminder ✌️ Things that are NOT OK: Bullying, hate speech, underwear, nudity, or violence. Please report any inappropriate behavior.',
     promote_product: 'Promote a product',
     mute_microphone: 'Mute the microphone',
     disable_camera: 'Disable Camera',
     rotate_camera: 'Reverse Camera',
     click_set_title: 'Click here to set the title',
     go_live: 'Go Live',
-    aunction_notice: 'As you are planning to create an auction, select the product you want to sell',
+    aunction_notice:
+      'As you are planning to create an auction, select the product you want to sell',
     confirm_post_delete: 'Are you sure you want to delete this post?',
     sent_price_offer: 'sent a price offer about your product',
     reply_comment: 'replied to your comment',
@@ -3570,7 +3575,7 @@ export default {
     hybrid: 'Hybrid',
     lpg: 'Liquefied petroleum gas (LPG)',
     petrol: 'Petrol',
-    wheelloader: 'Wheel Loader',
+    wheelloader: 'WheelLoader',
     wagon_drills: 'Wagon Drills',
     vibratory_rollers: 'Vibratory Rollers',
     trenchers: 'Trenchers',
